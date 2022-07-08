@@ -26,25 +26,16 @@
 	.GameMatrix {
 		display: flex;
 		flex-direction: column;
+		border: 1px solid black;
 	}
 
 	.GameMatrix .row {
 		display: flex;
 		flex-direction: row;
-		border-top: 1px solid black;
 	}
-
-	.GameMatrix .row:last-child {
-		border-bottom: 1px solid black;
-	}
-
 	.GameMatrix .col {
 		width: 22px;
 		height: 22px;
-		border-left: 1px solid black;
-	}
-
-	.GameMatrix .col:last-child {
-		border-right: 1px solid black;
+		border: 1px solid black;
 	}
 </style>

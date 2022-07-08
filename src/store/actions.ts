@@ -32,6 +32,16 @@ export const finishGame = () => {
 		started: true,
 		finished: true
 	}));
+
+	setTimeout(() => {
+		if (stores.gameStatus) {
+			stores.gameStatus.update((status) => ({
+				...status,
+				started: false,
+				finished: false
+			}));
+		}
+	}, 2000);
 };
 
 
@@ -57,7 +67,7 @@ export const takeFieldByActivePlayer = (field: Field) => {
 		field.player = activePlayer;
 		fields[field.x][field.y] = field;
 		stores.fields.update(() => fields);
-		
+
 		changeActivePlayer();
 	}
 };

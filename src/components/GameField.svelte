@@ -6,13 +6,15 @@
 	export let field: Field;
 
 
-	const onClick = () => {
-		takeFieldByActivePlayer(field);
-	};
+	$: backgroundColor = !field?.player?.backgroundColor ? 'white' : field.player.backgroundColor;
+	$: textColor = !field?.player?.textColor ? 'black' : field.player.textColor;
+
+
+	const onClick = () => takeFieldByActivePlayer(field);
 </script>
 
 
-<div class="GameField" on:click={onClick}>
+<div class="GameField" on:click={onClick} style:background-color={backgroundColor} style:color={textColor}>
 	<span>
 		{#if field.player}
 			{field.player.symbol}
@@ -29,7 +31,7 @@
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-		font-size: 20px;
+		font-size: 18px;
 		text-transform: uppercase;
 	}
 </style>
