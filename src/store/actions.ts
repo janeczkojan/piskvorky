@@ -32,16 +32,6 @@ export const finishGame = () => {
 		started: true,
 		finished: true
 	}));
-
-	setTimeout(() => {
-		if (stores.gameStatus) {
-			stores.gameStatus.update((status) => ({
-				...status,
-				started: false,
-				finished: false
-			}));
-		}
-	}, 2000);
 };
 
 

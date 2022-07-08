@@ -1,37 +1,18 @@
 <script lang="ts">
 	import GameMatrix from './GameMatrix.svelte';
-	import { gameStatus, fields, activePlayer } from '../store/stores';
-	import { startGame, finishGame } from '../store/actions';
-
-
-	$: started = $gameStatus.started;
-	$: finished = $gameStatus.finished;
-
-
-	const onButtonClick = () => {
-		if (started && !finished) {
-			finishGame();
-		} else {
-			startGame();
-		}
-	};
+	import ControlButton from './ControlButton.svelte';
+	import { gameStatus, fields } from '../store/stores';
 </script>
 
 
 <div class="Game">
 	<div class="controls">
-		<button on:click={onButtonClick}>
-			{#if started && !finished}
-				Konec
-			{:else}
-				Start
-			{/if}
-		</button>
+		<ControlButton />
 	</div>
 
 	<div class="matrix">
-		{#if started}
-			{#if finished}
+		{#if $gameStatus.started}
+			{#if $gameStatus.finished}
 				<h2>Hra dokončena</h2>
 			{:else}
 				<GameMatrix
@@ -53,10 +34,6 @@
 	.Game .matrix {
 		display: flex;
 		justify-content: center;
-	}
-
-	.Game .controls button {
-		width: 100px;
 	}
 
 	.Game .matrix {
