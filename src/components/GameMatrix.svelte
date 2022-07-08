@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Field, Player } from '../types';
+	import type { Field } from '../types';
 	import GameField from './GameField.svelte';
 
 

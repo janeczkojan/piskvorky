@@ -1,4 +1,4 @@
-import { writable, derived } from 'svelte/store';
+import { writable } from 'svelte/store';
 import type { Field, Player, GameStatus, GameConfig } from '../types';
 import { logStore } from '../utils/log';
 

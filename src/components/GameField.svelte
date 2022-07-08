@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Field, Player } from '../types';
-	import { takeFieldByActivePlayer, changeActivePlayer } from '../store/actions';
+	import type { Field } from '../types';
+	import { takeFieldByActivePlayer } from '../store/actions';
 
 
 	export let field: Field;

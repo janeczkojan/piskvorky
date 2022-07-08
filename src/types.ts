@@ -25,13 +25,9 @@ export type GameConfig = {
 };
 
 
-export type Position = [ number, number ];
 
-
-export type GetStartPositionFunction = () => Position;
-
+export type GetStartPositionFunction = () => [ number, number ];
 
 export type UpdateXPositionFunction = (x: number) => number;
-
 
 export type UpdateYPositionFunction = (y: number) => number;

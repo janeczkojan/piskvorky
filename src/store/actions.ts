@@ -1,8 +1,7 @@
 import * as stores from './stores';
 import { DEFAULT_GAME_ROWS, DEFAULT_GAME_COLS, DEFAULT_PLAYERS } from '../config';
 import { createEmptyGameMatrix, getLongestRowFromAllDirections } from '../utils/game';
-import type { Field, Player } from 'src/types';
-import { RowCheckDirection } from '../enums';
+import type { Field } from 'src/types';
 import { get } from 'svelte/store';
 
 
@@ -18,6 +17,8 @@ export const startGame = () => {
 	stores.players.update(() => DEFAULT_PLAYERS);
 
 	stores.activePlayer.update(() => DEFAULT_PLAYERS[0]);
+
+	stores.winningRow.update(() => ([]));
 
 	stores.gameStatus.update((status) => ({
 		...status,
