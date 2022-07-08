@@ -11,3 +11,15 @@ export type Field = {
 	y: number;
 	player?: Player;
 };
+
+
+export type GameStatus = {
+	started: boolean;
+	finished: boolean;
+};
+
+
+export type GameConfig = {
+	rows: number;
+	cols: number;
+};
