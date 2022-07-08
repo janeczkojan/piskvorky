@@ -1,7 +1,8 @@
 import * as stores from './stores';
 import { DEFAULT_GAME_ROWS, DEFAULT_GAME_COLS, DEFAULT_PLAYERS } from '../config';
-import { createEmptyGameMatrix} from '../utils/game';
+import { createEmptyGameMatrix, getLongestRowFromAllDirections } from '../utils/game';
 import type { Field, Player } from 'src/types';
+import { RowCheckDirection } from '../enums';
 import { get } from 'svelte/store';
 
 
@@ -49,6 +50,16 @@ export const changeActivePlayer = () => {
 };
 
 
+export const checkWinCombination = (startField: Field) => {
+	const fields = get(stores.fields);
+	const longestRow = getLongestRowFromAllDirections(fields, startField);
+
+	if (longestRow.length >= 5) {
+		stores.winningRow.update(() => longestRow);
+	}
+};
+
+
 export const takeFieldByActivePlayer = (field: Field) => {
 	const activePlayer = get(stores.activePlayer);
 	const fields = get(stores.fields);
@@ -58,6 +69,7 @@ export const takeFieldByActivePlayer = (field: Field) => {
 		fields[field.x][field.y] = field;
 		stores.fields.update(() => fields);
 
+		checkWinCombination(field);
 		changeActivePlayer();
 	}
 };

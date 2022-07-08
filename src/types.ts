@@ -23,3 +23,15 @@ export type GameConfig = {
 	rows: number;
 	cols: number;
 };
+
+
+export type Position = [ number, number ];
+
+
+export type GetStartPositionFunction = () => Position;
+
+
+export type UpdateXPositionFunction = (x: number) => number;
+
+
+export type UpdateYPositionFunction = (y: number) => number;

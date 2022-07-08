@@ -24,6 +24,9 @@ export const gameConfig = writable<GameConfig>({
 export const fields = writable<Field[][]>([]);
 
 
+export const winningRow = writable<Field[]>([]);
+
+
 
 // Remove in production
 logStore('players', players);
@@ -31,3 +34,4 @@ logStore('activePlayer', activePlayer);
 logStore('gameStatus', gameStatus);
 logStore('gameConfig', gameConfig);
 logStore('fields', fields);
+logStore('winCombination', winningRow);
