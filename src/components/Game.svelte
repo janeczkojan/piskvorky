@@ -1,7 +1,7 @@
 <script lang="ts">
 	import GameMatrix from './GameMatrix.svelte';
 	import ControlButton from './ControlButton.svelte';
-	import { gameStatus, fields } from '../store/stores';
+	import { gameStatus, fields, winningRow } from '../store/stores';
 </script>
 
 
@@ -12,11 +12,10 @@
 
 	<div class="matrix">
 		{#if $gameStatus.started}
-			{#if $gameStatus.finished}
-				<h2>Hra dokončena</h2>
-			{:else}
+			{#if !$gameStatus.finished}
 				<GameMatrix
 					fields={$fields}
+					winningFields={$winningRow}
 				/>
 			{/if}
 		{/if}

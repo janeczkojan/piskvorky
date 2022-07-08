@@ -29,9 +29,9 @@ export const winningRow = writable<Field[]>([]);
 
 
 // Remove in production
-logStore('players', players);
-logStore('activePlayer', activePlayer);
-logStore('gameStatus', gameStatus);
-logStore('gameConfig', gameConfig);
-logStore('fields', fields);
-logStore('winCombination', winningRow);
+// logStore('players', players);
+// logStore('activePlayer', activePlayer);
+// logStore('gameStatus', gameStatus);
+// logStore('gameConfig', gameConfig);
+// logStore('fields', fields);
+// logStore('winCombination', winningRow);

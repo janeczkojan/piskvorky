@@ -64,8 +64,9 @@ export const checkWinCombination = (startField: Field) => {
 export const takeFieldByActivePlayer = (field: Field) => {
 	const activePlayer = get(stores.activePlayer);
 	const fields = get(stores.fields);
+	const winningList = get(stores.winningRow);
 
-	if (!field.player) {
+	if (!field.player && winningList.length < 5) {
 		field.player = activePlayer;
 		fields[field.x][field.y] = field;
 		stores.fields.update(() => fields);

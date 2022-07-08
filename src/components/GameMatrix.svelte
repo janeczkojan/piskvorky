@@ -1,9 +1,19 @@
 <script lang="ts">
 	import type { Field } from '../types';
 	import GameField from './GameField.svelte';
+	import { fieldsListToMap, fieldToStringKey } from '../utils/game';
 
 
 	export let fields: Field[][];
+	export let winningFields: Field[];
+
+
+	$: winningFieldsMap = fieldsListToMap(winningFields);
+	
+
+	const isFieldWinning = (field: Field): boolean => {
+		return !!(winningFieldsMap.get(fieldToStringKey(field)));
+	};
 </script>
 
 
@@ -14,6 +24,7 @@
 				<div class="col">
 					<GameField
 						field={col}
+						isWinning={isFieldWinning(col)}
 					/>
 				</div>
 			{/each}

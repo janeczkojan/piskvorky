@@ -103,3 +103,17 @@ export const getLongestRowFromAllDirections = (fields: Field[][], startField: Fi
 
 	return row;
 };
+
+
+export const fieldToStringKey = (field: Field): string => `${field.x}-${field.y}`;
+
+
+export const fieldsListToMap = (fielList: Field[]): Map<string, Field> => {
+	const fieldsMap = new Map<string, Field>();
+
+	for (let field of fielList) {
+		fieldsMap.set(fieldToStringKey(field), field);
+	}
+
+	return fieldsMap;
+};

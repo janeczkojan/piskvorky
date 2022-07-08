@@ -29,5 +29,21 @@
 <style>
 	.ControlButton {
 		width: 100px;
+		background-color: white;
+		cursor: pointer;
+		border: 2px solid rgb(117, 117, 117);
+		font-size: 16px;
+		font-weight: bold;
+		color: rgb(117, 117, 117)
+	}
+
+	.ControlButton:hover {
+		background-color: rgb(117, 117, 117);
+		color: white;
+	}
+
+	.ControlButton:active {
+		background-color: rgb(68, 68, 68);
+		color: white;
 	}
 </style>

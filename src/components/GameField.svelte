@@ -4,10 +4,22 @@
 
 
 	export let field: Field;
+	export let isWinning: boolean;
 
 
-	$: backgroundColor = !field?.player?.backgroundColor ? 'white' : field.player.backgroundColor;
-	$: textColor = !field?.player?.textColor ? 'black' : field.player.textColor;
+	let backgroundColor = 'white';
+	let textColor = 'black';
+
+
+	$: {
+		if (isWinning) {
+			backgroundColor = 'yellow';
+			textColor = 'black';
+		} else {
+			backgroundColor = !field?.player?.backgroundColor ? 'white' : field.player.backgroundColor;
+			textColor = !field?.player?.textColor ? 'black' : field.player.textColor;
+		}
+	}
 
 
 	const onClick = () => takeFieldByActivePlayer(field);
